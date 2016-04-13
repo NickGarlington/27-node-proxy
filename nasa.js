@@ -1,4 +1,5 @@
 import http from 'http';
+import https from 'https';
 import httpProxy from 'http-proxy';
 import url from 'url';
 
@@ -27,7 +28,9 @@ let server = http.createServer(function(req, res) {
    *    in your browser. At /planetary/apod you should see data for the
    *    Astronomy Picture of the Day.
    */
-
+    parsedUrl.query.api_key = ("ufnYTPlkppRlPS29JAdMIgTdRdvGLvRmrNh0oTdx");
+    parsedUrl.search = null;
+    req.url = url.format(parsedUrl);
    proxy.web(req, res, {
      target: 'https://api.nasa.gov',
      agent  : https.globalAgent,

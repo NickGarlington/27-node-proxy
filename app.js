@@ -11,7 +11,7 @@ let server = http.createServer(function(req, res) {
    *
    * 1. parsedUrl.path contains the path the user is requesting.
    *    Setup an if statement to check if they're looking at /
-   *
+
    *    If they are, use res.write() to send them a message
    *    explaining that they're on the root page.
    *
@@ -25,6 +25,19 @@ let server = http.createServer(function(req, res) {
    *    in your browser. At /, you should see the / message. At /other,
    *    you should see the other message.
    */
+  console.log(parsedUrl);
+  if (parsedUrl.pathname === "/") {
+
+    res.write("<h1>Youre on the root page</h1>")
+    res.end();
+  }
+
+    else {
+    res.write("<p>Youre on another page</p>")
+
+  res.end();
+}
+
 
 });
 
